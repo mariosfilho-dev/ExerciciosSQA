@@ -1,8 +1,4 @@
 #Configuração 
-Funcionalidade: Configurar um produto
-Como um cliente cadastrado
-Eu quero configurar meu produto de acordo com o meu tamanho e gosto
-E escolher quantidade
 
 Funcionalidade: Configurar Produto na EBAC-SHOP
 Como cliente da EBAC-SHOP
@@ -10,38 +6,36 @@ Quero configurar meu produto de acordo com meu tamanho e gosto
 E escolher a quantidade
 Para depois inserir no carrinho
 
-Critérios de Aceitação:
-Dado que eu esteja na pagina de configuração do produto
-Quando eu selecionar o tamanho, cor e quantidade devem ser obrigatórios
-E escolher a quantidade
-Para depois inserir no carrinho
+Cenário: Selecões de cor, tamanho e quantidade devem ser obrigatórios
+Dado que a pagina de configuração do produto
+Quando não selecionar o "tamanho" , "cor" e "quantidade" 
+Então será exibida a mensagem "Seleção obrigatório"
 
-Esquema do Cenário: Seleções válidas e limites de quantidade
-Dado que eu estou na página de um produto
-Quando eu escolher a 
-E o 
-E definir a 
-E clicar no botão "Adicionar ao carrinho"
-Então o sistema deve apresentar a mensagem "<mensagem>" e o produto deve ser adicionado ao carrinho
+Cenário: Limitação de produtos
+Dado a quantidade for permitidos até 10 produtos
+Quando selecionar 12 produtos 
+Então sera exibida a mensagem "Erro: Permitido apenas 10 produtos por venda." 
 
 Exemplos:
 |cor|tamanho|quantidade|mensagem|
 |"Azul"|"P"|1|"Produto adicionado ao carrinho com sucesso!"|
 |"Preto"|"M"|10|"Produto adicionado ao carrinho com sucesso!"|
-|"Preto"|"G"|11|"Erro: Permitido apenas o máximo de 10 produtos por venda."|
+|"Preto"|"G"|11|"Erro: Permitido apenas 10 produtos por venda."|
 
-Esquema do Cenário: Validação de campos obrigatórios
-Dado que eu estou na página de um produto
-Quando eu tentar adicionar ao carrinho com a,o e a 
-Então o sistema deve exibir a <mensagem_erro>
+Cenário: Validação de campos obrigatórios
+Dado que a página de um produto 
+Quando deixar o campos obrigatórios vazios  
+Então sera exibida a mensagem "Par favor, preencher o campo obrigatório"
 
 Exemplos:
-|cor|tamanho|quantidade|mensagem_erro|
+|cor|tamanho|quantidade|mensagem|
 |"Nenhuma"|"M"|2|"Por favor, selecione uma cor."|
 |"Azul"|"Nenhum"|1|"Por favor, selecione um tamanho."|
-|"Verde"|"G"|0|"A quantidade deve ser maior que zero."|
+|"Verde"|"G"|0|"Por favor, selecione a quantidade."|
 
-Cenário: Limpar configurações do produto
-Dado que eu selecionei a cor "Vermelho", o tamanho "GG" e a quantidade 5
-Quando eu clicar no botão "Limpar"
-Então os campos de cor, tamanho e quantidade devem voltar ao estado original vazio
+Cenário: Resetar campos para o valor padrão
+Dado que o usuário preencheu o campo "tamanho" e "cor"
+E selecionou limpar campo
+Quando clicar no botão "Limpar"
+Então os campos devem ficar vazios
+E voltar para a opção padrão
