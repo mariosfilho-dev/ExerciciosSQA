@@ -1,4 +1,4 @@
-#Configuração 
+#Configuração
 
 Funcionalidade: Configurar Produto na EBAC-SHOP
 Como cliente da EBAC-SHOP
