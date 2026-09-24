@@ -14,8 +14,8 @@ Exemplos:
 | cliente@teste.com   | Senha@123   | checkout  |                              |
 
 Cenário: Campos inválidos
-Dado a tela de login da EBAC-SHOP
-Quando preencher o campos inválidos 
+Dado que o cliente esteja na página de login do site EBAC-SHOP
+Quando preencher os campos inválidos 
 Então exibirá em <mensagem> "Usuário ou senha inválido"
 
 Exemplos:
