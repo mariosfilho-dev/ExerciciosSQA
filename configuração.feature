@@ -8,12 +8,12 @@ Para depois inserir no carrinho
 
 Cenário: Selecões de cor, tamanho e quantidade devem ser obrigatórios
 Dado que a pagina de configuração do produto
-Quando não selecionar o "tamanho" , "cor" e "quantidade" 
+Quando o cliente não selecionar o "tamanho" , "cor" e "quantidade" obrigatórios
 Então será exibida a mensagem "Seleção obrigatório"
 
 Cenário: Limitação de produtos
-Dado a quantidade for permitidos até 10 produtos
-Quando selecionar 12 produtos 
+Dado que a quantidade for permitidos até 10 produtos
+Quando for ultrapassado o limite de quantidades de produtos sujeridos   
 Então sera exibida a mensagem "Erro: Permitido apenas 10 produtos por venda." 
 
 Exemplos:
@@ -23,19 +23,15 @@ Exemplos:
 |"Preto"|"G"|11|"Erro: Permitido apenas 10 produtos por venda."|
 
 Cenário: Validação de campos obrigatórios
-Dado que a página de um produto 
-Quando deixar o campos obrigatórios vazios  
-Então sera exibida a mensagem "Par favor, preencher o campo obrigatório"
+Dado que a página inicial no site  
+Quando o cliente preencher o campos obrigatórios e ao cliclar para concluir  
+Então sera exibida a mensagem "Valido"
 
 Exemplos:
 |cor|tamanho|quantidade|mensagem|
-|"Nenhuma"|"M"|2|"Por favor, selecione uma cor."|
-|"Azul"|"Nenhum"|1|"Por favor, selecione um tamanho."|
-|"Verde"|"G"|0|"Por favor, selecione a quantidade."|
+|"Azul"|"M"|2|"Valido"|
 
 Cenário: Resetar campos para o valor padrão
-Dado que o usuário preencheu o campo "tamanho" e "cor"
-E selecionou limpar campo
-Quando clicar no botão "Limpar"
-Então os campos devem ficar vazios
-E voltar para a opção padrão
+Dado que o usuário preencheu o campo "tamanho" e "cor" e precisou limpar o campo preechido
+Quando ele for clicar no botão "Limpar"
+Então o sistema reconhecera e limpará os campos prenchidos e voltará para o valor padrão
