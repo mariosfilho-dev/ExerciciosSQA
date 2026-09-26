@@ -1,12 +1,12 @@
 #Login na Plataforma
  Funcionalidade: Login na Plataforma
- Como cliente
+ Como cliente da EBAC-SHOP
  Quero fazer o login(autenticação) na plataforma
  Para visualizar meus pedidos
 
 Cenário:
-Dado a pagina de login
-Quando inserir as credenciais validas no campo obrigatório ser direcioando para a tela de checkout
+Dado a pagina de login no site
+Quando o sistema inserir as credenciais validas no campo obrigatório 
 Então será direcioando para a tela de checkout 
 
 Exemplos:
@@ -15,8 +15,8 @@ Exemplos:
 
 Cenário: Campos inválidos
 Dado que o cliente esteja na página de login do site EBAC-SHOP
-Quando preencher os campos inválidos 
-Então exibirá em <mensagem> "Usuário ou senha inválido"
+Quando o usuário preencher os campos invalidos no site e clicar em concluir
+Então exibirá a mensagem "Usuário ou senha inválidos"
 
 Exemplos:
 
