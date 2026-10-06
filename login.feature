@@ -14,4 +14,9 @@ Então o sistema reconhecera e direcionará para o checkout
 Esquema de Cenário: Login com dados inválidos
 Quando o usuário inserir os campos <login> e <senha> inválidos
 E clicar para entrar 
-Então o sistema deve exibir a mensagem "Usuário ou senha inválidos"
+Então o sistema deve exibir a mensagem "Usuário ou senha inválidos!"
+
+Exemplo: 
+|          EMAIL        |   SENHA   |           MENSAGEM          |
+|   ABC@GMAIL.COM       |   ABCDE   |                             |
+|   ABCDEFG@GMAIL.COM   |   ABCDE   | Usuário ou senha inválidos! |
