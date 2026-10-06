@@ -6,32 +6,42 @@ Quero configurar meu produto de acordo com meu tamanho e gosto
 E escolher a quantidade
 Para depois inserir no carrinho
 
-Cenário: Selecões de cor, tamanho e quantidade devem ser obrigatórios
-Dado que a pagina de configuração do produto
-Quando o cliente não selecionar o "tamanho" , "cor" e "quantidade" obrigatórios
-Então será exibida a mensagem "Seleção obrigatório"
-
-Cenário: Limitação de produtos
-Dado que a quantidade for permitidos até 10 produtos
-Quando for ultrapassado o limite de quantidades de produtos sujeridos   
-Então sera exibida a mensagem "Erro: Permitido apenas 10 produtos por venda." 
+Esquema de Cenário: Selecione cor, tamanho e quantidade obrigatórios
+Dado que o usuário está na pagina de configuração do produto
+E deixar "cor","tamanho" e "quantidade" com campo vazio
+Quando o usuário for concluir para ser adicionado ao carrinho
+Então o sistema exibirá a mensagem "Campo vazio, por favor preencher!"
 
 Exemplos:
-|cor|tamanho|quantidade|mensagem|
-|"Azul"|"P"|1|"Produto adicionado ao carrinho com sucesso!"|
-|"Preto"|"M"|10|"Produto adicionado ao carrinho com sucesso!"|
-|"Preto"|"G"|11|"Erro: Permitido apenas 10 produtos por venda."|
+|Cor   | Tamanho | Quantidade | Mensagem |
+|"Azul"|   "P"   |            |"Campo vazio, por favor preencher!"|
 
-Cenário: Validação de campos obrigatórios
-Dado que a página inicial no site  
-Quando o cliente preencher o campos obrigatórios e ao cliclar para concluir  
-Então sera exibida a mensagem "Valido"
+Esquema de Cenário: Limitação de produtos
+Dado que o usuário está na pagina de produtos
+E que a quantidade permitidos seja até 10 produtos
+Quando a quantidade de produto sugerido seja ultrapassado    
+Então sera exibida a mensagem "Erro: Permitido apenas 10 produtos." 
 
 Exemplos:
-|cor|tamanho|quantidade|mensagem|
-|"Azul"|"M"|2|"Valido"|
+|Cor   | Tamanho | Quantidade | Mensagem |
+|"Azul"|   "P"   |            |"Erro: Permitido apenas 10 produtos."|
 
-Cenário: Resetar campos para o valor padrão
-Dado que o usuário preencheu o campo "tamanho" e "cor" e precisou limpar o campo preechido
-Quando ele for clicar no botão "Limpar"
-Então o sistema reconhecera e limpará os campos prenchidos e voltará para o valor padrão
+Esquema de Cenário: Validação de campos obrigatórios
+Dado que que o usuário está na página inicial
+E preenche o campos obrigatórios informados 
+Quando cliclar para concluir 
+Então o sistema reconhecerá e exibirá a mensagem "Valido"
+
+Exemplos:
+|Cor   | Tamanho | Quantidade | Mensagem  |
+|"Azul"|   "P"   |     2      |  "Valido" |
+
+Esquema de Cenário: Resetar campos
+Dado que o cliente seleciona uma cor e um tamanho para o produto
+Quando clicar no botão "Limpar"
+Então o sistema deve limpar as seleções e voltar os campos para o valor padrão
+
+Exemplos:
+| Limpar | Limpar  |   Limpar   |
+|  Cor   | Tamanho | Quantidade |
+|        |         |            |
