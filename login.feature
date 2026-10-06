@@ -7,16 +7,16 @@ Contexto:
 Dado que o usuário está na página de cadastro
 
 Cenário: Autenticação com sucesso
-Quando o usuário preencher os campos validos 
-E a clicar para entrar 
+Quando o usuário preencher os campos EMAIL<email>, SENHA<senha> e MENSAGEM<mensagem> 
+E a clicar "concluir"
 Então o sistema reconhecera e direcionará para o checkout 
 
 Esquema de Cenário: Login com dados inválidos
-Quando o usuário inserir os campos <login> e <senha> inválidos
-E clicar para entrar 
-Então o sistema deve exibir a mensagem "Usuário ou senha inválidos!"
+Quando o usuário inserir os campos LOGIN<login> e SENHA<senha> inválidos
+E clicar para "entrar" 
+Então o sistema deve exibir a mensagem <Usuário ou senha inválidos!>
 
 Exemplo: 
 |          EMAIL        |   SENHA   |           MENSAGEM          |
-|   ABC@GMAIL.COM       |   ABCDE   |                             |
+|   ABC@GMAIL.COM       |   ABCDE   | Usuário ou senha inválidos! |
 |   ABCDEFG@GMAIL.COM   |   ABCDE   | Usuário ou senha inválidos! |
